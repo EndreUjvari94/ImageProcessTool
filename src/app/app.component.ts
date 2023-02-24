@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sales-image-process';
+  componentName: string = "file-select";
+
+  constructor() {}
+
+  onChangeView(componentName: string) {
+    this.componentName = componentName;
+  }
 }

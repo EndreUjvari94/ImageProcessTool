@@ -1,0 +1,26 @@
+<section class="row">
+    <h5>Selected images</h5>
+    <div *ngFor="let image of selectedImages">
+        <p>{{ image.name }}</p>
+    </div>
+</section>
+<section class="row">
+    <div *ngFor="let image of showroomImages" class="col-md-3">
+        <img 
+            [src]="image.url" 
+            [name]="image.name" 
+            alt="showroom"
+            style="width: 200px;"
+            (click)="onShowroomSelect($event)"
+        >
+    </div>
+</section>
+<section class="row">
+    <button 
+        class="btn btn-primary"
+        type="button"
+        (click)="onCreate()"
+    >
+        Create
+    </button>
+</section>

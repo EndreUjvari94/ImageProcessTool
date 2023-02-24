@@ -1,0 +1,9 @@
+div {
+    margin: 15% auto;
+    text-align: center;
+}
+
+ngx-dropzone:hover {
+    color: #E57131;
+    border: 2px dashed #E57131;
+}
