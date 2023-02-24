@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { FileSelectComponent } from './file-select/file-select.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ResultsComponent } from './results/results.component';
+import { ResultImageComponent } from './results/result-image/result-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileSelectComponent,
     SettingsComponent,
-    ResultsComponent
+    ResultsComponent,
+    ResultImageComponent
   ],
   imports: [
     BrowserModule,

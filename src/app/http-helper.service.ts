@@ -9,6 +9,8 @@ import { Showroom } from './models';
 })
 export class HttpHelperService {
 
+  private selectedShowroom: string = "";
+
   constructor(private http: HttpClient) {}
 
   getShowrooms(): Observable<Object> {
@@ -18,6 +20,10 @@ export class HttpHelperService {
       "Authorization": `Bearer ${environment.adminToken}`
     });
     return this.http.get<Showroom[]>(environment.host + "admin/config/user/showrooms", {headers: headers});
+  }
+
+  setSelectedShowroom(showroom: string) {
+    this.selectedShowroom = showroom;
   }
 
   fetchGeneratedImages(file: File) {
@@ -30,6 +36,7 @@ export class HttpHelperService {
     //Body settings
     const formData = new FormData();
     formData.append("image", file);
+    formData.append("scene_id", this.selectedShowroom);
 
     return this.http.post(
       environment.host + "vehicle/composition/single-segment", 

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { HttpHelperService } from './http-helper.service';
 import { Showroom } from './models';
 
@@ -8,7 +9,7 @@ import { Showroom } from './models';
 export class ImageService {
 
   selectedImages: File[] = [];
-  generatedImages: string = "";
+  generatedImages: File[] = [];
   showrooms: Showroom[] = [];
 
   constructor(private httpHelperService: HttpHelperService) {
@@ -21,12 +22,5 @@ export class ImageService {
 
   addImages(files: File[]) {
     this.selectedImages = files;
-  }
-
-  generateImages() {
-    this.httpHelperService.fetchGeneratedImages(this.selectedImages[0])
-    .subscribe(res => {
-      this.generatedImages = res;
-    })
   }
 }

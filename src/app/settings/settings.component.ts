@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { HttpHelperService } from '../http-helper.service';
 import { ImageService } from '../image.service';
 
 @Component({
@@ -12,17 +13,18 @@ export class SettingsComponent {
 
   selectedImages = this.imageService.selectedImages;
   showroomImages = this.imageService.showrooms;
-  selectedShowroom: string = "";
+  
 
-  constructor(private imageService: ImageService) {}
+  constructor(
+    private imageService: ImageService,
+    private httpHelperService: HttpHelperService
+  ) {}
 
   onShowroomSelect(event: any) {
-    this.selectedShowroom = event.target.name;
-    console.log(this.selectedShowroom);
+    this.httpHelperService.setSelectedShowroom(event.target.name);
   }
 
   onCreate() {
     this.changeView.next("results");
-    this.imageService.generateImages();
   }
 }

@@ -1,1 +1,8 @@
-<p>results works!</p>
+<section class="row">
+    <div 
+        *ngFor="let img of selectedImages"
+        class="col-md-4"
+    >
+        <app-result-image [img]="img"></app-result-image>
+    </div>
+</section>

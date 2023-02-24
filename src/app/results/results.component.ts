@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ImageService } from '../image.service';
 
 @Component({
   selector: 'app-results',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent {
+
+  selectedImages = this.imageService.selectedImages;
+
+  constructor(private imageService: ImageService) {}
 
 }
