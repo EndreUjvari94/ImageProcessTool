@@ -1,8 +1,29 @@
-<section class="row">
-    <div 
-        *ngFor="let img of selectedImages"
-        class="col-md-4"
-    >
-        <app-result-image [img]="img"></app-result-image>
+<section class="row outer-container">
+    <div class="col-lg-8 left-container">
+        <h3>Generated images</h3>
+        <div class="carousel">
+            <carousel 
+                [height]="400"
+                [cellWidth]="500"
+                [transitionDuration]="500"
+                arrowsTheme='dark'
+            >
+                <div class="carousel-cell" *ngFor="let imgModel of imageSourceMap">
+                    <app-result-image [imgModel]="imgModel"></app-result-image>
+                </div>
+            </carousel>
+        </div>
+    </div>
+    <div class="col-lg-4 right-container">
+        <div class="menu-item">
+            <label>Jottacloud link:</label>
+        </div>
+        <div class="menu-item">
+            <button 
+                class="download-button"
+            >
+            <i class="bi bi-download"></i> Download images
+            </button>
+        </div>
     </div>
 </section>

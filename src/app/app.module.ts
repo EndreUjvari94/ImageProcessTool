@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { AppComponent } from './app.component';
 import { FileSelectComponent } from './file-select/file-select.component';
@@ -22,7 +23,8 @@ import { ResultImageComponent } from './results/result-image/result-image.compon
     BrowserModule,
     NgbModule,
     NgxDropzoneModule,
-    HttpClientModule
+    HttpClientModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

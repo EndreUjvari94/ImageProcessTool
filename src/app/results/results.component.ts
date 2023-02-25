@@ -8,7 +8,7 @@ import { ImageService } from '../image.service';
 })
 export class ResultsComponent {
 
-  selectedImages = this.imageService.selectedImages;
+  imageSourceMap = this.imageService.imageSourceMap;
 
   constructor(private imageService: ImageService) {}
 

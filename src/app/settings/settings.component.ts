@@ -11,10 +11,10 @@ export class SettingsComponent {
 
   @Output() changeView = new EventEmitter<string>();
 
-  selectedImages = this.imageService.selectedImages;
+  imageSourceMap = this.imageService.imageSourceMap;
   showroomImages = this.imageService.showrooms;
+  isShowroomSelectionActive = false;
   
-
   constructor(
     private imageService: ImageService,
     private httpHelperService: HttpHelperService
@@ -26,5 +26,9 @@ export class SettingsComponent {
 
   onCreate() {
     this.changeView.next("results");
+  }
+
+  toggleShowroomSelection() {
+    this.isShowroomSelectionActive = !this.isShowroomSelectionActive;
   }
 }

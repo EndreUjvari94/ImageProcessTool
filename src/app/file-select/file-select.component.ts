@@ -13,7 +13,7 @@ export class FileSelectComponent {
   constructor(private imageService: ImageService) {}
 
   onSelect(event: any) {
-    this.imageService.addImages(event.addedFiles);
+    this.imageService.createImageSourceMap(event.addedFiles);
     this.changeView.next("settings");
   }
 }

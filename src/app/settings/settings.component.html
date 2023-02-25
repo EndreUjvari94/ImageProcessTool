@@ -1,26 +1,93 @@
-<section class="row">
-    <h5>Selected images</h5>
-    <div *ngFor="let image of selectedImages">
-        <p>{{ image.name }}</p>
-    </div>
-</section>
-<section class="row">
-    <div *ngFor="let image of showroomImages" class="col-md-3">
-        <img 
-            [src]="image.url" 
-            [name]="image.name" 
-            alt="showroom"
-            style="width: 200px;"
-            (click)="onShowroomSelect($event)"
+<div class="row outer-container">
+    <div class="col-lg-4 left-bar-menu">
+        <form action="submit" id="settingsForm">
+            <div class="menu-item">
+                <label for="tokenInput">Customer Token</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="tokenInput"
+                    required
+                >
+            </div>
+            <div class="menu-item">
+                <label for="cutTypeSelect">Cut Type</label>
+                <select 
+                    class="form-select" 
+                    name="cutTypeSelect" 
+                    id="cutTypeSelect"
+                >
+                    <option>Complete</option>
+                    <option>Normal</option>
+                    <option>Blur</option>
+                    <option>None</option>
+                </select>
+            </div>
+            <div class="menu-item">
+                <label for="licensePlateSelect">License Plate Removal</label>
+                <select 
+                    class="form-select"
+                    name="licensePlateSelect" 
+                    id="licensePlateSelect"
+                >
+                    <option>Blurred</option>
+                    <option>None</option>
+                </select>
+            </div>
+        </form>
+
+        <div 
+            class="menu-item highlight"
+            (click)="toggleShowroomSelection()"
         >
+            <label>Select Showroom</label>
+            <img 
+                [src]="showroomImages[0].url" 
+                [name]="showroomImages[0].name" 
+                [alt]="showroomImages[0].name"
+            >
+        </div>
+        <div  class="menu-item">
+            <button 
+                class="generate-button"
+                (click)="onCreate()"
+            >
+                <i class="bi bi-gear"></i> Generate
+            </button>
+            <button class="cancel-button">
+                <i class="bi bi-x-square"></i> Cancel
+            </button>
+        </div>
     </div>
-</section>
-<section class="row">
-    <button 
-        class="btn btn-primary"
-        type="button"
-        (click)="onCreate()"
-    >
-        Create
-    </button>
-</section>
+    <div class="col-lg-8 container" *ngIf="!isShowroomSelectionActive">
+        <h3>Selected images</h3>
+        <div class="carousel">
+            <carousel 
+                [height]="400"
+                [cellWidth]="500"
+                [transitionDuration]="500"
+                arrowsTheme='dark'
+            >
+                <div class="carousel-cell" *ngFor="let img of imageSourceMap">
+                    <img [src]="img.dataUrl">
+                </div>
+            </carousel>
+        </div>
+    </div>
+    <div class="col-lg-8 container" *ngIf="isShowroomSelectionActive" >
+        <h3>Select showroom</h3>
+        <div style="margin: 0 10%;" >
+            <div class="row" style="overflow: scroll; height: 600px;">
+                <div *ngFor="let image of showroomImages" class="col-md-3 col-sm-6" >
+                    <img 
+                        [src]="image.url" 
+                        [name]="image.name" 
+                        alt="showroom"
+                        style="width: 100%;"
+                        (click)="onShowroomSelect($event)"
+                    >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

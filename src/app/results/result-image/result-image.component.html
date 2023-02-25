@@ -1,3 +1,14 @@
-<div>
-    <img [src]="this.imageSource" alt="generated image">
+<div 
+    *ngIf="this.imageSource.toString().length === 0" 
+    class="loading-indicator"
+>
+    <!-- Loading indicator -->
+    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 </div>
+<img 
+    *ngIf="this.imageSource.toString().length > 0"
+    [src]="this.imageSource" 
+    [name]="imgModel.name" 
+    [alt]="imgModel.name"
+>
+

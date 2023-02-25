@@ -10,7 +10,7 @@ import { HttpHelperService } from 'src/app/http-helper.service';
 })
 export class ResultImageComponent implements OnInit {
 
-  @Input() img: any;
+  @Input() imgModel: any;
 
   imageSource: SafeResourceUrl = "";
 
@@ -20,7 +20,7 @@ export class ResultImageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.httpHelperService.fetchGeneratedImages(this.img).subscribe(res => {
+    this.httpHelperService.fetchGeneratedImages(this.imgModel.file).subscribe(res => {
       this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${res}`);
     });
   }

@@ -1,0 +1,64 @@
+h3 {
+    margin: 5% 0 0 10%;
+}
+
+.carousel {
+    width: 90%; 
+    margin: 2% auto; 
+}
+
+.download-button {
+    background-color: white;
+    border: 0;
+    border-radius: 6px;
+    color: #0B6DFF;
+    margin-right: 2%;
+    padding: 3%;
+    width: 100%;
+}
+
+.download-button:hover {
+    background-color: #0B6DFF;
+    color: white;
+}
+
+.left-container {
+    background-color: #ECEDF3;
+    border-radius: 10px 0 0 10px;
+}
+
+.menu-item {
+    color: white;
+    font-size: 1.5rem;
+    padding: 5% 10%;
+}
+
+.outer-container {
+    border-radius: 10px;
+    margin: 3% 3% 0;
+}
+
+.right-container {
+    background-color: #4D4D4F;
+    border-radius: 0 10px 10px 0;
+}
+
+@media (max-width: 1290px) {
+    .menu-item {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .menu-item {
+        font-size: 1.5rem;
+    }
+
+    .left-container {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .right-container {
+        border-radius: 0 0 10px 10px;
+    }
+}
