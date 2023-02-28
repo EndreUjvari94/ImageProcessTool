@@ -1,52 +1,50 @@
 <div class="row outer-container">
     <div class="col-lg-4 left-bar-menu">
-        <form action="submit" id="settingsForm">
-            <div class="menu-item">
-                <label for="tokenInput">Customer Token</label>
-                <input 
-                    #tokenInput
-                    class="form-control" 
-                    type="text" 
-                    name="tokenInput"
-                    required
-                    (change)="userService.token = tokenInput.value"                    
+        <div class="menu-item">
+            <label for="tokenInput">Customer Token</label>
+            <input 
+                #tokenInput
+                class="form-control" 
+                type="text" 
+                name="tokenInput"
+                required
+                (change)="userService.token = tokenInput.value"                    
+            >
+        </div>
+        <div class="menu-item">
+            <label for="cutTypeSelect">Cut Type</label>
+            <select 
+                #cutTypeSelect
+                class="form-select" 
+                name="cutTypeSelect" 
+                id="cutTypeSelect"
+                (change)="userService.cutType = cutTypeSelect.value"
+            >
+                <option 
+                    *ngFor="let cutType of getCutTypeModel()"
+                    [value]="cutType.value"
                 >
-            </div>
-            <div class="menu-item">
-                <label for="cutTypeSelect">Cut Type</label>
-                <select 
-                    #cutTypeSelect
-                    class="form-select" 
-                    name="cutTypeSelect" 
-                    id="cutTypeSelect"
-                    (change)="userService.cutType = cutTypeSelect.value"
-                >
-                    <option 
-                        *ngFor="let cutType of getCutTypeModel()"
-                        [value]="cutType.value"
-                    >
-                        {{ cutType.name }}
-                    </option>
-                </select>
-            </div>
-            <div class="menu-item">
-                <label for="licensePlateSelect">License Plate Removal</label>
-                <select 
-                    #licensePlateRemovalSelect
-                    class="form-select"
-                    name="licensePlateSelect" 
-                    id="licensePlateSelect"
-                    (change)="userService.licensePlateRemoval = licensePlateRemovalSelect.value"
-                >
-                    <option>Blurred</option>
-                    <option>None</option>
-                </select>
-            </div>
-        </form>
+                    {{ cutType.name }}
+                </option>
+            </select>
+        </div>
+        <div class="menu-item">
+            <label for="licensePlateSelect">License Plate Removal</label>
+            <select 
+                #licensePlateRemovalSelect
+                class="form-select"
+                name="licensePlateSelect" 
+                id="licensePlateSelect"
+                (change)="userService.licensePlateRemoval = licensePlateRemovalSelect.value"
+            >
+                <option>Blurred</option>
+                <option>None</option>
+            </select>
+        </div>
 
         <div 
             class="menu-item highlight"
-            (click)="toggleShowroomSelection()"
+            (click)="isShowroomSelectionActive = true"
             [ngClass]="isShowroomSelectionActive ? 'active' : 'passive'"
         >
             <label>Select Showroom</label>
@@ -72,22 +70,37 @@
         *ngIf="!isShowroomSelectionActive"
         class="col-lg-8 container" 
     >
-        <h3>Selected images</h3>
-        <div class="carousel">
-            <carousel 
-                [height]="400"
-                [cellWidth]="500"
-                [transitionDuration]="500"
-                arrowsTheme='dark'
-            >
-                <div 
-                    *ngFor="let img of imageService.imageSourceMap"
-                    class="carousel-cell" 
+        <!-- If the user chose only 1 image -->
+        <div *ngIf="imageService.imageSourceMap.length === 1">
+            <h3>Selected image</h3>
+            <div>
+                <img 
+                    id="one-image-view"
+                    [src]="imageService.imageSourceMap[0].dataUrl" 
+                    [alt]="imageService.imageSourceMap[0].name"
                 >
-                    <img [src]="img.dataUrl">
-                </div>
-            </carousel>
+            </div>
         </div>
+        <!-- If the user chose more than 1 image -> carousel -->
+        <div *ngIf="imageService.imageSourceMap.length > 1">
+            <h3>Selected images</h3>
+            <div class="carousel">
+                <carousel 
+                    [height]="400"
+                    [cellWidth]="500"
+                    [transitionDuration]="500"
+                    arrowsTheme='dark'
+                >
+                    <div 
+                        *ngFor="let img of imageService.imageSourceMap"
+                        class="carousel-cell" 
+                    >
+                        <img [src]="img.dataUrl">
+                    </div>
+                </carousel>
+            </div>
+        </div>
+
     </div>
     <div 
         *ngIf="isShowroomSelectionActive"

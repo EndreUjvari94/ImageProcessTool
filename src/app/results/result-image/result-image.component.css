@@ -1,3 +1,7 @@
+img {
+    max-width: 100%;
+}
+
 .lds-ring {
     display: inline-block;
     position: relative;

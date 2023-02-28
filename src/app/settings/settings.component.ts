@@ -24,11 +24,7 @@ export class SettingsComponent {
 
   onShowroomSelect(event: any) {
     this.userService.sceneId = event.target.name;
-    this.toggleShowroomSelection();
-  }
-
-  toggleShowroomSelection() {
-    this.isShowroomSelectionActive = !this.isShowroomSelectionActive;
+    this.isShowroomSelectionActive = false;
   }
 
   getCutTypeModel() {
