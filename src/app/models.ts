@@ -1,7 +1,4 @@
-export interface Showroom {
-    name: string;
-    url: string;
-}
+// Classes
 
 export class ImageModel {
     name: string = "";
@@ -9,3 +6,21 @@ export class ImageModel {
     generated?: string = "";
     file: any;
 }
+
+export class UserModel {
+    cutType: string = "complete";
+    email?: string;
+    licensePlateRemoval: string = "true";
+    name?: string;
+    sceneId?: string ;
+    token: string = "";
+}
+
+// Interfaces
+
+export interface Showroom {
+    name: string;
+    url: string;
+}
+
+

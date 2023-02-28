@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ImageService } from '../image.service';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-results',
@@ -8,8 +8,6 @@ import { ImageService } from '../image.service';
 })
 export class ResultsComponent {
 
-  imageSourceMap = this.imageService.imageSourceMap;
-
-  constructor(private imageService: ImageService) {}
+  constructor(public imageService: ImageService) {}
 
 }

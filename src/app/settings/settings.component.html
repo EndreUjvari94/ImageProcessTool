@@ -4,31 +4,39 @@
             <div class="menu-item">
                 <label for="tokenInput">Customer Token</label>
                 <input 
+                    #tokenInput
                     class="form-control" 
                     type="text" 
                     name="tokenInput"
                     required
+                    (change)="userService.token = tokenInput.value"                    
                 >
             </div>
             <div class="menu-item">
                 <label for="cutTypeSelect">Cut Type</label>
                 <select 
+                    #cutTypeSelect
                     class="form-select" 
                     name="cutTypeSelect" 
                     id="cutTypeSelect"
+                    (change)="userService.cutType = cutTypeSelect.value"
                 >
-                    <option>Complete</option>
-                    <option>Normal</option>
-                    <option>Blur</option>
-                    <option>None</option>
+                    <option 
+                        *ngFor="let cutType of getCutTypeModel()"
+                        [value]="cutType.value"
+                    >
+                        {{ cutType.name }}
+                    </option>
                 </select>
             </div>
             <div class="menu-item">
                 <label for="licensePlateSelect">License Plate Removal</label>
                 <select 
+                    #licensePlateRemovalSelect
                     class="form-select"
                     name="licensePlateSelect" 
                     id="licensePlateSelect"
+                    (change)="userService.licensePlateRemoval = licensePlateRemovalSelect.value"
                 >
                     <option>Blurred</option>
                     <option>None</option>
@@ -42,15 +50,15 @@
         >
             <label>Select Showroom</label>
             <img 
-                [src]="showroomImages[0].url" 
-                [name]="showroomImages[0].name" 
-                [alt]="showroomImages[0].name"
+                [src]="imageService.showrooms[0].url" 
+                [name]="imageService.showrooms[0].name" 
+                [alt]="imageService.showrooms[0].name"
             >
         </div>
         <div  class="menu-item">
             <button 
                 class="generate-button"
-                (click)="onCreate()"
+                (click)="onGenerate()"
             >
                 <i class="bi bi-gear"></i> Generate
             </button>
@@ -68,7 +76,7 @@
                 [transitionDuration]="500"
                 arrowsTheme='dark'
             >
-                <div class="carousel-cell" *ngFor="let img of imageSourceMap">
+                <div class="carousel-cell" *ngFor="let img of imageService.imageSourceMap">
                     <img [src]="img.dataUrl">
                 </div>
             </carousel>
@@ -78,7 +86,7 @@
         <h3>Select showroom</h3>
         <div style="margin: 0 10%;" >
             <div class="row" style="overflow: scroll; height: 600px;">
-                <div *ngFor="let image of showroomImages" class="col-md-3 col-sm-6" >
+                <div *ngFor="let image of imageService.showrooms" class="col-md-3 col-sm-6" >
                     <img 
                         [src]="image.url" 
                         [name]="image.name" 

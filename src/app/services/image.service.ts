@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { HttpHelperService } from './http-helper.service';
-import { Showroom, ImageModel } from './models';
+import { Showroom, ImageModel } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ImageService {
 
-  // selectedImages: File[] = [];
-  // selectedImagesAsDataURL: string = "";
-  // generatedImages: File[] = [];
   showrooms: Showroom[] = [];
   imageSourceMap: ImageModel[] = [];
 
@@ -39,22 +36,4 @@ export class ImageService {
     });
 
   }
-
-  // addImages(files: File[]) {
-  //   this.selectedImages = files;
-  //   files.forEach(img => {
-  //     console.log(img);
-  //     this.convertImageToDataURL(img);
-      
-  //   });
-  // }
-
-  
-  // convertImageToDataURL(img: File) {
-  //   const reader = new FileReader();
-  //   reader.readAsDataURL(img);
-  //   reader.onloadend = () => {
-  //     console.log(reader.result);
-  //   }
-  // }
 }

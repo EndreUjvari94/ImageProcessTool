@@ -7,6 +7,10 @@ h3 {
     margin: 2% auto; 
 }
 
+.carousel-cell {
+    background-color: #D5D5DB;
+}
+
 .download-button {
     background-color: white;
     border: 0;

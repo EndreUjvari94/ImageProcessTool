@@ -8,7 +8,10 @@
                 [transitionDuration]="500"
                 arrowsTheme='dark'
             >
-                <div class="carousel-cell" *ngFor="let imgModel of imageSourceMap">
+                <div 
+                    class="carousel-cell" 
+                    *ngFor="let imgModel of imageService.imageSourceMap"
+                >
                     <app-result-image [imgModel]="imgModel"></app-result-image>
                 </div>
             </carousel>

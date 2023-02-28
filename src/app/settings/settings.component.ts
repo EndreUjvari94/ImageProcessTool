@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { HttpHelperService } from '../http-helper.service';
-import { ImageService } from '../image.service';
+import { ImageService } from '../services/image.service';
+import { CUT_TYPE, BLURRING_LICENSE_PLATE } from '../globals';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,24 +12,30 @@ export class SettingsComponent {
 
   @Output() changeView = new EventEmitter<string>();
 
-  imageSourceMap = this.imageService.imageSourceMap;
-  showroomImages = this.imageService.showrooms;
   isShowroomSelectionActive = false;
   
   constructor(
-    private imageService: ImageService,
-    private httpHelperService: HttpHelperService
+    public imageService: ImageService,
+    public userService: UserService
   ) {}
 
   onShowroomSelect(event: any) {
-    this.httpHelperService.setSelectedShowroom(event.target.name);
-  }
-
-  onCreate() {
-    this.changeView.next("results");
+    this.userService.sceneId = event.target.name;
   }
 
   toggleShowroomSelection() {
     this.isShowroomSelectionActive = !this.isShowroomSelectionActive;
+  }
+
+  getCutTypeModel() {
+    return CUT_TYPE;
+  }
+
+  getBlurringLicensePlateModel() {
+    return BLURRING_LICENSE_PLATE;
+  }
+
+  onGenerate() {
+    this.changeView.next("results");
   }
 }

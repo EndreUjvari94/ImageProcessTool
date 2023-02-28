@@ -22,6 +22,10 @@ h3 {
     margin: 2% auto; 
 }
 
+.carousel-cell {
+    background-color: #D5D5DB;
+}
+
 .container {
     background-color: #ECEDF3;
     border-radius: 0 10px 10px 0;
