@@ -47,12 +47,13 @@
         <div 
             class="menu-item highlight"
             (click)="toggleShowroomSelection()"
+            [ngClass]="isShowroomSelectionActive ? 'active' : 'passive'"
         >
             <label>Select Showroom</label>
             <img 
-                [src]="imageService.showrooms[0].url" 
-                [name]="imageService.showrooms[0].name" 
-                [alt]="imageService.showrooms[0].name"
+                [src]="showroomImage.url" 
+                [name]="showroomImage.name" 
+                [alt]="showroomImage.name" 
             >
         </div>
         <div  class="menu-item">
@@ -67,7 +68,10 @@
             </button>
         </div>
     </div>
-    <div class="col-lg-8 container" *ngIf="!isShowroomSelectionActive">
+    <div 
+        *ngIf="!isShowroomSelectionActive"
+        class="col-lg-8 container" 
+    >
         <h3>Selected images</h3>
         <div class="carousel">
             <carousel 
@@ -76,24 +80,38 @@
                 [transitionDuration]="500"
                 arrowsTheme='dark'
             >
-                <div class="carousel-cell" *ngFor="let img of imageService.imageSourceMap">
+                <div 
+                    *ngFor="let img of imageService.imageSourceMap"
+                    class="carousel-cell" 
+                >
                     <img [src]="img.dataUrl">
                 </div>
             </carousel>
         </div>
     </div>
-    <div class="col-lg-8 container" *ngIf="isShowroomSelectionActive" >
+    <div 
+        *ngIf="isShowroomSelectionActive"
+        class="col-lg-8 container"  
+    >
         <h3>Select showroom</h3>
         <div style="margin: 0 10%;" >
-            <div class="row" style="overflow: scroll; height: 600px;">
-                <div *ngFor="let image of imageService.showrooms" class="col-md-3 col-sm-6" >
-                    <img 
+            <div 
+                class="row scrollbar" 
+                id="style-1"
+            >
+                <div 
+                    *ngFor="let image of imageService.showrooms" 
+                    class="col-md-3 col-sm-6" 
+                >
+                    <div class="showroom">
+                        <img 
                         [src]="image.url" 
                         [name]="image.name" 
                         alt="showroom"
-                        style="width: 100%;"
                         (click)="onShowroomSelect($event)"
+                        (mouseenter)="setShowroomImage($event)"
                     >
+                    </div>
                 </div>
             </div>
         </div>
