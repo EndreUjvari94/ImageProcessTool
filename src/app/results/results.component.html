@@ -29,11 +29,18 @@
     </div>
     <div class="col-lg-4 right-container">
         <div class="menu-item">
-            <label>Jottacloud link:</label>
+            <a 
+                [href]="user.cloudLink" 
+                class="btn btn-primary result-button jottacloud-button"
+                target="_blank"
+            >
+                <i class="bi bi-cloud"></i> Open in Jottacloud
+            </a>
         </div>
         <div class="menu-item">
             <button 
-                class="download-button"
+                class="result-button download-button"
+                (click)="onDownload()"
             >
             <i class="bi bi-download"></i> 
             {{imageService.imageSourceMap.length === 1 ? 'Download image' : 'Download images'}}

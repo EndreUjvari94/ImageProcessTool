@@ -10,6 +10,7 @@ export class ImageService {
 
   showrooms: Showroom[] = [];
   imageSourceMap: ImageModel[] = [];
+  generatedImages: string[] = [];
 
   constructor(private httpHelperService: HttpHelperService) {
 

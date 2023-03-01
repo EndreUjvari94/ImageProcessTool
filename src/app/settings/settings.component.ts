@@ -36,10 +36,12 @@ export class SettingsComponent {
   }
 
   setShowroomImage(event: any) {
-    this.showroomImage = <Showroom>this.imageService.showrooms.find(x => x.name === event.target.name);
+    this.showroomImage = <Showroom>this.imageService.showrooms
+    .find(x => x.name === event.target.name);
   }
 
   onGenerate() {
+    this.userService.getUserSettings();
     this.changeView.next("results");
   }
 }

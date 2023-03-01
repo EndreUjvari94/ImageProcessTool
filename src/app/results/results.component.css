@@ -2,6 +2,10 @@ h3 {
     margin: 5% 0 0 10%;
 }
 
+a {
+    font-size: 1.5rem;
+}
+
 .carousel {
     width: 90%; 
     margin: 2% auto; 
@@ -12,17 +16,20 @@ h3 {
 }
 
 .download-button {
-    background-color: white;
-    border: 0;
-    border-radius: 6px;
     color: #0B6DFF;
-    margin-right: 2%;
-    padding: 3%;
-    width: 100%;
 }
 
 .download-button:hover {
     background-color: #0B6DFF;
+    color: white;
+}
+
+.jottacloud-button {
+    color: black
+}
+
+.jottacloud-button:hover {
+    background-color: black;
     color: white;
 }
 
@@ -40,6 +47,15 @@ h3 {
 .outer-container {
     border-radius: 10px;
     margin: 3% 3% 0;
+}
+
+.result-button {
+    background-color: white;
+    border: 0;
+    border-radius: 6px;
+    margin-right: 2%;
+    padding: 3%;
+    width: 100%;
 }
 
 .right-container {

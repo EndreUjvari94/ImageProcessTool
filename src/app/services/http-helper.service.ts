@@ -18,6 +18,13 @@ export class HttpHelperService {
     );
   }
 
+  getUserSettings(user: UserModel): Observable<Object> {
+    return this.http.get(
+      environment.host + "admin/config/user/" + user.token, 
+      {headers: this.setHeadersFor(environment.adminToken)}
+    );
+  }
+
   setHeadersFor(token: string): HttpHeaders {
     const headers = new HttpHeaders({
       "Authorization": `Bearer ${token}`
