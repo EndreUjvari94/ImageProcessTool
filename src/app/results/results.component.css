@@ -71,6 +71,11 @@ button {
     width: 100%;
 }
 
+.result-button:disabled {
+    background-color: #979799;
+    color: black;
+}
+
 .right-container {
     background-color: #4D4D4F;
     border-radius: 0 10px 10px 0;

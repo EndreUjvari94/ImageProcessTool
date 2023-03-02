@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { HttpHelperService } from 'src/app/services/http-helper.service';
@@ -35,7 +35,7 @@ export class ResultImageComponent implements OnInit {
         alert(e.message);
       },
       complete: () => {
-        // Here we can enable the download button
+        this.imageService.generationCompleted++;
       }
     });
   }

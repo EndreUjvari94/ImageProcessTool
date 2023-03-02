@@ -54,6 +54,11 @@ h3 {
     color: white;
 }
 
+.generate-button:disabled {
+    background-color: #979799;
+    color: black;
+}
+
 .highlight:hover {
     background-color: #97979C;
     cursor: pointer;

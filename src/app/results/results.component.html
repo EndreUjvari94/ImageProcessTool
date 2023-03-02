@@ -51,7 +51,7 @@
             </label>
             <button
                 *ngIf="!user.cloudLink"
-                class="btn btn-primary result-button jottacloud-button"
+                class="result-button"
                 disabled
             >
                 <i class="bi bi-cloud"></i> Open in Jottacloud
@@ -61,6 +61,7 @@
             <button 
                 class="result-button download-button"
                 (click)="onDownload()"
+                [disabled]="imageService.imageSourceMap.length !== imageService.generationCompleted"
             >
             <i class="bi bi-download"></i> 
             {{imageService.imageSourceMap.length === 1 ? 'Download image' : 'Download images'}}

@@ -11,6 +11,7 @@ export class ImageService {
   showrooms: Showroom[] = [];
   imageSourceMap: ImageModel[] = [];
   generatedImages: string[] = [];
+  generationCompleted: number = 0;
 
   constructor(private httpHelperService: HttpHelperService) {
 
