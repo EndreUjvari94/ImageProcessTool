@@ -25,17 +25,37 @@
                     </div>
                 </carousel>
             </div>
-        </div>        
+        </div>
+
+        <!-- If there is an error with the http request of the user settings -->
+        <div *ngIf="userService.errorMessage.length > 1">
+            <p>{{ userService.errorMessage }}</p>
+        </div>
+
     </div>
     <div class="col-lg-4 right-container">
         <div class="menu-item">
             <a 
+                *ngIf="user.cloudLink"
                 [href]="user.cloudLink" 
                 class="btn btn-primary result-button jottacloud-button"
                 target="_blank"
             >
                 <i class="bi bi-cloud"></i> Open in Jottacloud
             </a>
+            <label 
+                *ngIf="!user.cloudLink && userService.isGetUserSettingsFinished"
+                class="warning"
+            >
+                Jottacloud is not available for this user.
+            </label>
+            <button
+                *ngIf="!user.cloudLink"
+                class="btn btn-primary result-button jottacloud-button"
+                disabled
+            >
+                <i class="bi bi-cloud"></i> Open in Jottacloud
+            </button>
         </div>
         <div class="menu-item">
             <button 

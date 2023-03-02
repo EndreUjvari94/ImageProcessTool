@@ -6,6 +6,10 @@ a {
     font-size: 1.5rem;
 }
 
+button {
+    font-size: 1.5rem;
+}
+
 .carousel {
     width: 90%; 
     margin: 2% auto; 
@@ -22,6 +26,15 @@ a {
 .download-button:hover {
     background-color: #0B6DFF;
     color: white;
+}
+
+.error-message {
+    background-color: #DE6F64; 
+    border: 2px solid #E13232;
+}
+
+.error-message p {
+    margin: 10%;
 }
 
 .jottacloud-button {
@@ -61,6 +74,10 @@ a {
 .right-container {
     background-color: #4D4D4F;
     border-radius: 0 10px 10px 0;
+}
+
+.warning {
+    color: #FAF67D;
 }
 
 @media (max-width: 1290px) {

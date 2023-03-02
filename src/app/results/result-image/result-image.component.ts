@@ -25,10 +25,18 @@ export class ResultImageComponent implements OnInit {
 
   ngOnInit() {
     this.httpHelperService.fetchGeneratedImages(this.imgModel.file, this.userService.user)
-    .subscribe(res => {
-      this.imageSource = this.sanitizer
-      .bypassSecurityTrustResourceUrl(`data:image/jpg;base64, ${res}`);
-      this.imageService.generatedImages.push(res);
+    .subscribe({
+      next: (res) => {
+        this.imageSource = this.sanitizer
+        .bypassSecurityTrustResourceUrl(`data:image/jpg;base64, ${res}`);
+        this.imageService.generatedImages.push(res);
+      },
+      error: (e) => {
+        alert(e.message);
+      },
+      complete: () => {
+        // Here we can enable the download button
+      }
     });
   }
 }
