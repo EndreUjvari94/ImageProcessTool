@@ -1,9 +1,4 @@
 <div>
     <h3>Select images</h3>
-    <ngx-dropzone 
-        accept="image/*"
-        (change)="onSelect($event)"
-    >
-        <ngx-dropzone-label>DROP CAR IMAGE or SELECT FILE</ngx-dropzone-label>
-    </ngx-dropzone>
+    <app-dropzone (imageSelected)="onSelect()"></app-dropzone>
 </div>

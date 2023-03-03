@@ -11,6 +11,7 @@ import { FileSelectComponent } from './file-select/file-select.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultImageComponent } from './results/result-image/result-image.component';
+import { DropzoneComponent } from './file-select/dropzone/dropzone.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ResultImageComponent } from './results/result-image/result-image.compon
     FileSelectComponent,
     SettingsComponent,
     ResultsComponent,
-    ResultImageComponent
+    ResultImageComponent,
+    DropzoneComponent
   ],
   imports: [
     BrowserModule,

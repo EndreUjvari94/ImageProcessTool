@@ -5,14 +5,3 @@ div {
     padding: 5%;
     text-align: center;
 }
-
-ngx-dropzone {
-    background-color:#ECEDF3;
-    border: 2px dashed #0B6DFF;
-    color: #0B6DFF;
-}
-
-ngx-dropzone:hover {
-    border: 2px dashed #E57131;
-    color: #E57131;
-}

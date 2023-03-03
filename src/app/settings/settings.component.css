@@ -35,6 +35,10 @@ h3 {
     border-radius: 0 10px 10px 0;
 }
 
+.dropzone {
+    margin: 2% 20%;
+}
+
 .form-control {
     font-size: 1rem;
 }

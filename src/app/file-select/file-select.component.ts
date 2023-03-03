@@ -1,5 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { ImageService } from '../services/image.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-file-select',
@@ -10,10 +9,7 @@ export class FileSelectComponent {
 
   @Output() changeView = new EventEmitter<string>();
 
-  constructor(private imageService: ImageService) {}
-
-  onSelect(event: any) {
-    this.imageService.createImageSourceMap(event.addedFiles);
+  onSelect() {
     this.changeView.next("settings");
   }
 }

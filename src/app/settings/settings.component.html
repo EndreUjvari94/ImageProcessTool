@@ -72,6 +72,15 @@
         *ngIf="!isShowroomSelectionActive"
         class="col-lg-8 container" 
     >
+
+        <!-- Add more images -->
+        <div>
+            <h3>Add more images</h3>
+            <div class="dropzone">
+                <app-dropzone></app-dropzone>
+            </div>
+        </div>
+
         <!-- If the user chose only 1 image -->
         <div *ngIf="imageService.imageSourceMap.length === 1">
             <h3>Selected image</h3>
