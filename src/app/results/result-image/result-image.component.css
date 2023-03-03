@@ -2,6 +2,31 @@ img {
     max-width: 100%;
 }
 
+.download-single-img {
+    color: white;
+    font-style: normal;
+    margin: -30px 0 0 10px;
+    position: relative;
+    text-shadow: black 1px 0 10px;
+    width: 20%;
+    z-index: 1;
+}
+
+.download-single-img:hover {
+    color: #0B6DFF;
+    cursor: pointer;
+}
+
+.one-image {
+    height: 800px;
+}
+
+.multiple-image {
+    background-color: #E3E3E6; 
+    width: 500px; 
+    height: 400px;
+}
+
 .lds-ring {
     display: inline-block;
     position: relative;

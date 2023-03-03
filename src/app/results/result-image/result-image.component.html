@@ -1,14 +1,31 @@
 <div 
-    *ngIf="this.imageSource.toString().length === 0" 
-    class="loading-indicator"
+    [ngClass]="{
+        'one-image': imgAmount === 'single',
+        'multiple-image': imgAmount === 'multiple'
+    }"
+    *ngIf="this.imageSource.toString().length === 0"
 >
-    <!-- Loading indicator -->
-    <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    <div          
+        class="loading-indicator"
+    >
+        <!-- Loading indicator -->
+        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+    </div>
 </div>
-<img 
-    *ngIf="this.imageSource.toString().length > 0"
-    [src]="this.imageSource" 
-    [name]="imgModel.name" 
-    [alt]="imgModel.name"
->
+
+<div *ngIf="this.imageSource.toString().length > 0">
+    <img 
+        [src]="this.imageSource" 
+        [name]="imgModel.name" 
+        [alt]="imgModel.name"
+    >
+    <p 
+        class="download-single-img"
+        (click)="onDownloadSingleImage()"    
+    >
+        <i class="bi bi-download"></i> 
+        Download
+    </p>
+</div>
+
 

@@ -4,7 +4,9 @@
         <div *ngIf="imageService.imageSourceMap.length === 1">
             <h3>Generated image</h3>
             <div style="max-width: 70%; max-height: 50%; margin: 5% 10%;">
-                <app-result-image [imgModel]="imageService.imageSourceMap[0]"></app-result-image>
+                <app-result-image 
+                    [imgModel]="imageService.imageSourceMap[0]"
+                ></app-result-image>
             </div>
         </div>
         <!-- If the user chose more than 1 image -> carousel -->
@@ -21,7 +23,9 @@
                         class="carousel-cell" 
                         *ngFor="let imgModel of imageService.imageSourceMap"
                     >
-                        <app-result-image [imgModel]="imgModel"></app-result-image>
+                        <app-result-image 
+                            [imgModel]="imgModel"
+                        ></app-result-image>
                     </div>
                 </carousel>
             </div>
