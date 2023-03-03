@@ -27,18 +27,15 @@ button {
 .error-message {
     background-color: #DE6F64; 
     border: 2px solid #E13232;
-}
-
-.error-message p {
     margin: 10%;
 }
 
 .jottacloud-button {
-    color: black
+    color: #9C61E8;
 }
 
 .jottacloud-button:hover {
-    background-color: black;
+    background-color: #9C61E8;
     color: white;
 }
 
@@ -75,10 +72,18 @@ button {
 .right-container {
     background-color: #4D4D4F;
     border-radius: 0 10px 10px 0;
+    min-height: 90vh;
+    padding-top: 3%;
 }
 
 .warning {
     color: #FAF67D;
+}
+
+#main-image {
+    max-width: 70%; 
+    max-height: 50%; 
+    margin: 5% 10%;
 }
 
 @media (max-width: 1290px) {

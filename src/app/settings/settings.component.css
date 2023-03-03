@@ -67,6 +67,8 @@ h3 {
 .left-bar-menu {
     background-color: #4D4D4F;
     border-radius: 10px 0 0 10px;
+    min-height: 90vh;
+    padding-top: 3%;
 }
 
 .menu-item {
@@ -118,6 +120,10 @@ h3 {
     max-width: 70%; 
     max-height: 70%; 
     margin: 5% 10%;
+}
+
+#select-showroom {
+    margin: 0 10%;
 }
 
 #style-1::-webkit-scrollbar-track

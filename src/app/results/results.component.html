@@ -1,38 +1,45 @@
 <section class="row outer-container">
     <div class="col-lg-8 left-container">
-        <!-- If the user chose only 1 image -->
-        <div *ngIf="imageService.imageSourceMap.length === 1">
-            <h3>Generated image</h3>
-            <div style="max-width: 70%; max-height: 50%; margin: 5% 10%;">
-                <app-result-image 
-                    [imgModel]="imageService.imageSourceMap[0]"
-                ></app-result-image>
+
+        <!-- If there is no error -->
+        <div *ngIf="userService.errorMessage.length === 0">
+            <!-- If the user chose only 1 image -->
+            <div *ngIf="imageService.imageSourceMap.length === 1">
+                <h3>Generated image</h3>
+                <div id="main-image">
+                    <app-result-image 
+                        [imgModel]="imageService.imageSourceMap[0]"
+                    ></app-result-image>
+                </div>
             </div>
-        </div>
-        <!-- If the user chose more than 1 image -> carousel -->
-        <div *ngIf="imageService.imageSourceMap.length > 1">
-            <h3>Generated images</h3>
-            <div class="carousel">
-                <carousel 
-                    [height]="400"
-                    [cellWidth]="500"
-                    [transitionDuration]="500"
-                    arrowsTheme='dark'
-                >
-                    <div 
-                        class="carousel-cell" 
-                        *ngFor="let imgModel of imageService.imageSourceMap"
+            <!-- If the user chose more than 1 image -> carousel -->
+            <div *ngIf="imageService.imageSourceMap.length > 1">
+                <h3>Generated images</h3>
+                <div class="carousel">
+                    <carousel 
+                        [height]="600"
+                        [cellWidth]="700"
+                        [transitionDuration]="500"
+                        arrowsTheme='dark'
                     >
-                        <app-result-image 
-                            [imgModel]="imgModel"
-                        ></app-result-image>
-                    </div>
-                </carousel>
+                        <div 
+                            class="carousel-cell" 
+                            *ngFor="let imgModel of imageService.imageSourceMap"
+                        >
+                            <app-result-image 
+                                [imgModel]="imgModel"
+                            ></app-result-image>
+                        </div>
+                    </carousel>
+                </div>
             </div>
         </div>
 
         <!-- If there is an error with the http request of the user settings -->
-        <div *ngIf="userService.errorMessage.length > 1">
+        <div 
+            *ngIf="userService.errorMessage.length > 1"
+            class="error-message"
+        >
             <p>{{ userService.errorMessage }}</p>
         </div>
 

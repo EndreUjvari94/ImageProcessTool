@@ -46,7 +46,7 @@ export class ResultImageComponent implements OnInit {
         this.imageService.generatedImages.push(res);
       },
       error: (e) => {
-        alert(e.message);
+        console.log(e.message);
       },
       complete: () => {
         this.imageService.generationCompleted++;
