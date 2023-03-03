@@ -78,5 +78,22 @@
             {{imageService.imageSourceMap.length === 1 ? 'Download image' : 'Download images'}}
             </button>
         </div>
+        <div 
+            id="navigation-buttons" 
+            class="menu-item"
+        >
+            <button
+                class="back-button"
+                (click)="onBack()"
+            >
+                <i class="bi bi-arrow-left-square"></i> Back
+            </button>
+            <button 
+                class="cancel-button"
+                (click)="onCancel()"
+            >
+                <i class="bi bi-x-square"></i> Cancel
+            </button>
+        </div>
     </div>
 </section>

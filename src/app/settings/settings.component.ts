@@ -44,4 +44,8 @@ export class SettingsComponent {
     this.userService.getUserSettings();
     this.changeView.next("results");
   }
+
+  onCancel() {
+    window.location.reload();
+  }
 }

@@ -7,5 +7,8 @@
         *ngSwitchCase="'settings'"
         (changeView)="onChangeView($event)"
     ></app-settings>
-    <app-results *ngSwitchCase="'results'"></app-results>
+    <app-results 
+        *ngSwitchCase="'results'"
+        (changeView)="onChangeView($event)"
+    ></app-results>
 </section>

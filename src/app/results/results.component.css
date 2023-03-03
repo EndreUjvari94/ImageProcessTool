@@ -10,9 +10,38 @@ button {
     font-size: 1.5rem;
 }
 
+.back-button {
+    background-color: white;
+    border: 0;
+    border-radius: 6px;
+    color: #0B6DFF;
+    padding: 3%;
+    width: 49%;
+}
+
+.back-button:hover {
+    background-color: #0B6DFF;
+    color: white;
+}
+
+.cancel-button {
+    background-color: white;
+    border: 0;
+    border-radius: 6px;
+    color: #A92649;
+    margin-left: 2%;
+    padding: 3%;
+    width: 49%;
+}
+
+.cancel-button:hover {
+    background-color: #A92649;
+    color: white;
+}
+
 .carousel {
     width: 90%; 
-    margin: 2% auto; 
+    margin: 5% auto; 
 }
 
 .download-button {
@@ -84,6 +113,10 @@ button {
     max-width: 70%; 
     max-height: 50%; 
     margin: 5% 10%;
+}
+
+#navigation-buttons {
+    margin-top: 40vh;
 }
 
 @media (max-width: 1290px) {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ImageService } from '../services/image.service';
 import { UserService } from '../services/user.service';
 import { saveAs } from 'file-saver';
@@ -11,6 +11,8 @@ import * as JSZip from 'jszip';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent {
+
+  @Output() changeView = new EventEmitter<string>();
 
   user = this.userService.user;
 
@@ -38,5 +40,13 @@ export class ResultsComponent {
     .then((content) => {
       saveAs(content, `CarCutterImgPack_${date}.zip`);
     });
+  }
+
+  onBack() {
+    this.changeView.next("settings");
+  }
+
+  onCancel() {
+    window.location.reload();
   }
 }
