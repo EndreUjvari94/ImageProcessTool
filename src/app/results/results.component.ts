@@ -30,8 +30,7 @@ export class ResultsComponent {
     // Looping through the Base64 images, convert them to Blob 
     // so we can save them as files
     this.imageService.generatedImages.forEach((img: string) => {
-      const b64toBlob = require('b64-to-blob');
-      const blob = b64toBlob(img, 'image/png');
+      const blob = this.imageService.b64toBlob(img, 'image/png');
       jszip.file(`CarCutterImg_${date}${num++}.jpg`, blob);
     });
 
