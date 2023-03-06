@@ -9,6 +9,7 @@ import { Showroom, ImageModel } from '../models';
 export class ImageService {
 
   showrooms: Showroom[] = [];
+  isShowroomFetchFinished: boolean = false;
   imageSourceMap: ImageModel[] = [];
   generatedImages: string[] = [];
   generationCompleted: number = 0;
@@ -16,8 +17,17 @@ export class ImageService {
   constructor(private httpHelperService: HttpHelperService) {
 
     //Get showroom images from the API
-    this.httpHelperService.getShowrooms().subscribe((res: any) => {
-      this.showrooms = res.response;
+    this.httpHelperService.getShowrooms()
+    .subscribe({
+      next: (res: any) => {
+        this.showrooms = res.response;
+      },
+      error: (e) => {
+        console.log(e);
+      },
+      complete: () => {
+        this.isShowroomFetchFinished = true;
+      }
     });
   }
 

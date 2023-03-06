@@ -76,44 +76,47 @@
         class="col-lg-8 container" 
     >
 
-        <!-- Add more images -->
+        <!-- Add images -->
         <div>
-            <h3>Add more images</h3>
+            <h3>Add images</h3>
             <div class="dropzone">
                 <app-dropzone></app-dropzone>
             </div>
         </div>
 
-        <!-- If the user chose only 1 image -->
-        <div *ngIf="imageService.imageSourceMap.length === 1">
-            <h3>Selected image</h3>
-            <div>
-                <img 
-                    id="one-image-view"
-                    [src]="imageService.imageSourceMap[0].dataUrl" 
-                    [alt]="imageService.imageSourceMap[0].name"
-                >
-            </div>
-        </div>
-        <!-- If the user chose more than 1 image -> carousel -->
-        <div *ngIf="imageService.imageSourceMap.length > 1">
-            <h3>Selected images</h3>
-            <div class="carousel">
-                <carousel 
-                    [height]="400"
-                    [cellWidth]="500"
-                    [transitionDuration]="500"
-                    arrowsTheme='dark'
-                >
-                    <div 
-                        *ngFor="let img of imageService.imageSourceMap"
-                        class="carousel-cell" 
+        <div *ngIf="imageService.imageSourceMap.length > 0">
+            <!-- If the user chose only 1 image -->
+            <div *ngIf="imageService.imageSourceMap.length === 1">
+                <h3>Selected image</h3>
+                <div>
+                    <img 
+                        id="one-image-view"
+                        [src]="imageService.imageSourceMap[0].dataUrl" 
+                        [alt]="imageService.imageSourceMap[0].name"
                     >
-                        <img [src]="img.dataUrl">
-                    </div>
-                </carousel>
+                </div>
+            </div>
+            <!-- If the user chose more than 1 image -> carousel -->
+            <div *ngIf="imageService.imageSourceMap.length > 1">
+                <h3>Selected images</h3>
+                <div class="carousel">
+                    <carousel 
+                        [height]="400"
+                        [cellWidth]="500"
+                        [transitionDuration]="500"
+                        arrowsTheme='dark'
+                    >
+                        <div 
+                            *ngFor="let img of imageService.imageSourceMap"
+                            class="carousel-cell" 
+                        >
+                            <img [src]="img.dataUrl">
+                        </div>
+                    </carousel>
+                </div>
             </div>
         </div>
+        
 
     </div>
     <div 

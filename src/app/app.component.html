@@ -1,14 +1,10 @@
-<section [ngSwitch]="componentName">
-    <app-file-select 
-        *ngSwitchCase="'file-select'"
-        (changeView)="onChangeView($event)"
-    ></app-file-select>
+<section>
     <app-settings 
-        *ngSwitchCase="'settings'"
+        *ngIf="imageService.isShowroomFetchFinished && componentName ==='settings'"
         (changeView)="onChangeView($event)"
     ></app-settings>
     <app-results 
-        *ngSwitchCase="'results'"
+        *ngIf="componentName === 'results'"
         (changeView)="onChangeView($event)"
     ></app-results>
 </section>

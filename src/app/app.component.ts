@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ImageService } from './services/image.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sales-image-process';
-  componentName: string = "file-select";
+  componentName: string = "settings";
 
-  constructor() {}
+  constructor(public imageService: ImageService) {}
 
   onChangeView(componentName: string) {
     this.componentName = componentName;
