@@ -5,7 +5,7 @@
         <div *ngIf="userService.errorMessage.length === 0">
             <!-- If the user chose only 1 image -->
             <div *ngIf="imageService.imageSourceMap.length === 1">
-                <h3>Generated image</h3>
+                <h3>Result</h3>
                 <div id="main-image">
                     <app-result-image 
                         [imgModel]="imageService.imageSourceMap[0]"
@@ -14,7 +14,7 @@
             </div>
             <!-- If the user chose more than 1 image -> carousel -->
             <div *ngIf="imageService.imageSourceMap.length > 1">
-                <h3>Generated images</h3>
+                <h3>Results</h3>
                 <div class="carousel">
                     <carousel 
                         [height]="600"
@@ -82,17 +82,11 @@
             id="navigation-buttons" 
             class="menu-item"
         >
-            <button
-                class="back-button"
-                (click)="onBack()"
-            >
-                <i class="bi bi-arrow-left-square"></i> Back
-            </button>
             <button 
-                class="cancel-button"
-                (click)="onCancel()"
+                class="start-over-button"
+                (click)="onStartOver()"
             >
-                <i class="bi bi-x-square"></i> Cancel
+                <i class="bi bi-arrow-clockwise"></i> Start over
             </button>
         </div>
     </div>

@@ -59,7 +59,7 @@
                 #generateButton
                 class="generate-button"
                 (click)="onGenerate()"
-                [disabled]="tokenInput.value.length === 0"
+                [disabled]="tokenInput.value.length === 0 || imageService.imageSourceMap.length === 0"
             >
                 <i class="bi bi-gear"></i> Generate
             </button>

@@ -12,8 +12,6 @@ import * as JSZip from 'jszip';
 })
 export class ResultsComponent {
 
-  @Output() changeView = new EventEmitter<string>();
-
   user = this.userService.user;
 
   constructor(
@@ -41,11 +39,7 @@ export class ResultsComponent {
     });
   }
 
-  onBack() {
-    this.changeView.next("settings");
-  }
-
-  onCancel() {
+  onStartOver() {
     window.location.reload();
   }
 }
