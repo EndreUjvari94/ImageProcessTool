@@ -22,6 +22,7 @@ export class ResultsComponent {
 
   onDownload() {
     const date = Date.now()
+    const user = this.userService.user;
     const jszip = new JSZip();
     let num = 0;
 
@@ -29,13 +30,13 @@ export class ResultsComponent {
     // so we can save them as files
     this.imageService.generatedImages.forEach((img: string) => {
       const blob = this.imageService.b64toBlob(img, 'image/png');
-      jszip.file(`CarCutterImg_${date}${num++}.jpg`, blob);
+      jszip.file(`CarCutterImg_${user.token}_${date}${num++}.jpg`, blob);
     });
 
     // Creating the ZIP file
     jszip.generateAsync({ type: 'blob' })
     .then((content) => {
-      saveAs(content, `CarCutterImgPack_${date}.zip`);
+      saveAs(content, `CarCutterImgPack_${user.token}_${date}.zip`);
     });
   }
 

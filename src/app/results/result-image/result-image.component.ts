@@ -57,7 +57,8 @@ export class ResultImageComponent implements OnInit {
 
   onDownloadSingleImage() {
     const date = Date.now();
+    const user = this.userService.user;
     const blob = this.imageService.b64toBlob(this.imageSourceInBase64, 'image/jpg');
-    saveAs(blob, `CarCutterImg_${date}.jpg`);
+    saveAs(blob, `CarCutterImg_${user.token}_${date}.jpg`);
   }
 }

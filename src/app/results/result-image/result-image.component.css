@@ -3,18 +3,24 @@ img {
 }
 
 .download-single-img {
-    color: white;
+    background-color: white;
+    border-radius: 5px;
+    color: #0B6DFF;
     font-style: normal;
-    margin: -30px 0 0 10px;
+    margin: -55px 0 0 10px;
+    opacity: 60%;
+    padding: 10px;
     position: relative;
-    text-shadow: black 1px 0 10px;
+    text-align: center;
     width: 20%;
     z-index: 1;
 }
 
 .download-single-img:hover {
-    color: #0B6DFF;
+    background-color: #0B6DFF;
+    color: white;
     cursor: pointer;
+    opacity: 100%;
 }
 
 .one-image {
