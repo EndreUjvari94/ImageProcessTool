@@ -1,0 +1,5 @@
+<h3 *ngIf="progress < 100">Progress</h3>
+<h3 *ngIf="progress === 100">Finished</h3>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': progress + '%'}"></div>
+</div>

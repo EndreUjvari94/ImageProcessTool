@@ -11,6 +11,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ResultsComponent } from './results/results.component';
 import { ResultImageComponent } from './results/result-image/result-image.component';
 import { DropzoneComponent } from './settings/dropzone/dropzone.component';
+import { ProgressBarComponent } from './results/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DropzoneComponent } from './settings/dropzone/dropzone.component';
     SettingsComponent,
     ResultsComponent,
     ResultImageComponent,
-    DropzoneComponent
+    DropzoneComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

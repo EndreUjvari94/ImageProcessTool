@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 import { HttpHelperService } from './http-helper.service';
 import { Showroom, ImageModel } from '../models';
@@ -12,7 +13,7 @@ export class ImageService {
   isShowroomFetchFinished: boolean = false;
   imageSourceMap: ImageModel[] = [];
   generatedImages: string[] = [];
-  generationCompleted: number = 0;
+  generationCompletedSubject = new BehaviorSubject(0);
 
   constructor(private httpHelperService: HttpHelperService) {
 

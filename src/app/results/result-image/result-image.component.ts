@@ -49,7 +49,7 @@ export class ResultImageComponent implements OnInit {
         console.log(e.message);
       },
       complete: () => {
-        this.imageService.generationCompleted++;
+        this.imageService.generationCompletedSubject.next(this.imageService.generationCompletedSubject.value + 1);
         this.imgGenerationCompleted.next(true);
       }
     });

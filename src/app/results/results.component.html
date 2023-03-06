@@ -32,6 +32,9 @@
                         </div>
                     </carousel>
                 </div>
+                <div class="progress-bar-container">
+                    <app-progress-bar></app-progress-bar>
+                </div>
             </div>
         </div>
 
@@ -72,7 +75,7 @@
             <button 
                 class="result-button download-button"
                 (click)="onDownload()"
-                [disabled]="imageService.imageSourceMap.length !== imageService.generationCompleted"
+                [disabled]="imageService.imageSourceMap.length !== imageService.generationCompletedSubject.value"
             >
             <i class="bi bi-download"></i> 
             {{imageService.imageSourceMap.length === 1 ? 'Download image' : 'Download images'}}

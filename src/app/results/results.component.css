@@ -70,6 +70,10 @@ button {
     margin: 3% 3% 0;
 }
 
+.progress-bar-container {
+    margin: 0 10%;
+}
+
 .result-button {
     background-color: white;
     border: 0;
