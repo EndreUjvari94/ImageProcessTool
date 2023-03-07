@@ -12,6 +12,7 @@ import { ResultsComponent } from './results/results.component';
 import { ResultImageComponent } from './results/result-image/result-image.component';
 import { DropzoneComponent } from './settings/dropzone/dropzone.component';
 import { ProgressBarComponent } from './results/progress-bar/progress-bar.component';
+import { LoadingIndicatorComponent } from './results/loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProgressBarComponent } from './results/progress-bar/progress-bar.compon
     ResultsComponent,
     ResultImageComponent,
     DropzoneComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     BrowserModule,

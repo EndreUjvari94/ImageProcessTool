@@ -63,6 +63,10 @@ h3 {
     color: black;
 }
 
+.hide-menu-on-mobile {
+    display: block;
+}
+
 .highlight:hover {
     background-color: #97979C;
     cursor: pointer;
@@ -93,7 +97,7 @@ h3 {
 
 .outer-container {
     border-radius: 10px;
-    margin: 3% 3% 0;
+    margin: 3% 3% 10px;
 }
 
 .passive {
@@ -102,8 +106,9 @@ h3 {
 
 .scrollbar
 {
+    background-color: #ECEDF3;
 	height: 60vh;
-	background-color: #ECEDF3;
+	margin-bottom: 20px;
 	overflow-y: scroll;
 }
 
@@ -121,9 +126,10 @@ h3 {
 }
 
 #one-image-view {
-    max-width: 70%; 
+    max-width: 100%; 
     max-height: 70%; 
-    margin: 5% 10%;
+    margin-top: 5%;
+    padding: 0 20% 10px;
 }
 
 #select-showroom {
@@ -173,7 +179,26 @@ h3 {
         font-size: 1.5rem;
     }
 
+    .hide-menu-on-mobile {
+        display: none;
+    }
+
     .left-bar-menu {
         border-radius: 10px 10px 0 0;
+        min-height: auto;
+    }
+
+    .scrollbar {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 500px) {
+    .cancel-button {
+        font-size: 1rem;
+    }
+
+    .generate-button {
+        font-size: 1rem;
     }
 }

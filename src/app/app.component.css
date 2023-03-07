@@ -1,0 +1,6 @@
+.loading-indicator {
+    background-color: white;
+    position: absolute; 
+    margin-top: 45vh; 
+    margin-left: 50%;
+}

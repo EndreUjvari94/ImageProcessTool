@@ -32,7 +32,10 @@
                         </div>
                     </carousel>
                 </div>
-                <div class="progress-bar-container">
+                <div 
+                    *ngIf="imageService.imageSourceMap.length > 1"
+                    class="progress-bar-container"
+                >
                     <app-progress-bar></app-progress-bar>
                 </div>
             </div>

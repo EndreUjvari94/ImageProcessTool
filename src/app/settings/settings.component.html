@@ -1,5 +1,8 @@
 <div class="row outer-container">
-    <div class="col-lg-4 left-bar-menu">
+    <div 
+        class="col-lg-4 left-bar-menu"
+        [ngClass]="{'hide-menu-on-mobile': isShowroomSelectionActive}"
+    >
         <div class="menu-item">
             <label for="tokenInput">Customer Token</label>
             <input 
